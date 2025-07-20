@@ -1,0 +1,218 @@
+/* tamanho geral usado */
+
+*{margin: 0;
+    box-sizing: border-box;
+}
+img{
+  display: block;
+}
+body{ display: grid;
+    grid-template-rows: 90px 1fr;
+    height: 100vh;
+
+}
+
+/* cabeçalho/barra de navegação */
+
+.menu {
+    background-color: white;
+    
+}
+
+.menu-outros {
+    display: flex;           
+    align-items: center;     
+    gap: 20px;
+    box-shadow: 0px 12px #72999E;
+    
+                   
+}
+
+#logo {
+    width: 90px;
+    margin-left: 10px;
+}
+
+.btn-opcoes {
+    display: flex;           
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    margin-top: 55px;
+    
+}
+
+.btn-opcoes h2 {
+    color: black;
+    cursor: pointer;
+    outline: none;
+    font-family: "K2D", sans-serif;
+    font-weight: 200;
+    
+}
+
+#btn-favorito{
+    
+    all: unset;  
+    cursor: pointer;
+}
+
+#btn-favorito svg{
+    height: 32px;
+    width: 32px;
+}
+
+.navegador input{
+    height: 30px;
+    width: 200px;
+    font-size: 16px;
+}
+.pesquisa{
+    position: absolute;       
+  top: 30px;              
+  right: 20px;
+
+  display: flex;          
+  align-items: center;
+  gap: 20px;
+    
+}
+
+#user{
+all: unset;  
+    cursor: pointer;
+    border-radius: 30%;
+}
+
+#user svg{
+height: 25px;
+    width: 25px;
+    
+}
+
+/* pag principal(produtos/index.html) e da segundaria(Outros/outros.html)*/
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem; /* dar espaço entre a barra de navegação*/
+}
+/*regular o tamanho das imagens*/
+.card {
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card img{
+  max-height: 300px;
+  max-width: 200px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card h3 {
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/*pag final*/
+.fim-pag {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1fr, 1fr); 
+  gap: 1rem;
+  background-color: #845D5D;
+  padding: 1rem;
+  box-shadow: 0px -12px #4B5A5C;
+  z-index: 999;
+}
+
+/*grid de apresentação da empresa*/
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr); /* corrigido aqui: era "repeat(5fr, 1fr)" */
+  gap: 8px;
+  padding: 2rem;
+
+  grid-template-areas:
+    "div1 div1 div1 div1 div1 div1"
+    "div2 div2 div3 div3 div4 div4"
+    "div2 div2 div3 div3 div4 div4"
+    "div2 div2 div3 div3 div4 div4"
+    ;
+}
+
+.div1,
+.div2,
+.div3, /*  */
+.div4,
+.div5 {
+  grid-area: inherit; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  border: 1px solid #72999E ;
+  text-align: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.div1 {
+   grid-area: div1; 
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  }
+
+  /* editar o tamanho da imagem pra caber e sem explodir a tela */
+.div2 { 
+  grid-area: div2;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+}
+.div2 img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.div3 { grid-area: div3;
+padding: 1rem; }
+.div4 { grid-area: div4;
+padding: 1rem; }
+
+.div1 h2, .div2 h2, .div3 h2, .div4 h2 { 
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.div1 p, .div2 p, .div3 p, .div4 p {
+  font-size: 1.2rem;
+  color: #333;
+}
