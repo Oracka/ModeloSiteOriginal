@@ -78,12 +78,55 @@ body{ display: grid;
   gap: 20px;
     
 }
-
+/*LOGO DO USER AQUI, APLICAR O SISTEMA DE DROPDOWN NA variavel */
 #user{
 all: unset;  
     cursor: pointer;
     border-radius: 30%;
+    
 }
+
+/* Container do dropdown */
+    .user-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 60px; /* fica abaixo do user */
+      right: 0;
+      background: white;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(40px);
+      transition: all 0.3s ease;
+      min-width: 180px;
+      z-index: 100;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+      font-family: "K2D", sans-serif;
+      
+    }
+
+    .dropdown a:hover {
+      background: #7fcad3;
+      transform: translateX(0);
+    }
+
+    /* Mostrar dropdown no hover */
+    .user-container:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      
+    }
 
 #user svg{
 height: 25px;
@@ -148,22 +191,90 @@ height: 25px;
   z-index: 999;
 }
 
-/*grid de apresentação da empresa*/
+/*grid de apresentação da empresa OBS: USEI IA NESSA PARTE PQ ESTAVA HORRIVEL, se possível eu queria falar sobre*/
 
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr); /* corrigido aqui: era "repeat(5fr, 1fr)" */
-  gap: 8px;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 16px; /* Aumentei o gap para melhor espaçamento */
   padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* Fundo claro para o container pai */
 
   grid-template-areas:
     "div1 div1 div1 div1 div1 div1"
     "div2 div2 div3 div3 div4 div4"
     "div2 div2 div3 div3 div4 div4"
-    "div2 div2 div3 div3 div4 div4"
-    ;
+    "div2 div2 div3 div3 div4 div4";
 }
+
+/* Estilização genérica para todas as divs do grid */
+.parent > div {
+  background: white;
+  border-radius: 12px; /* Bordas mais arredondadas */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Borda sutil */
+}
+
+
+
+/* Estilização individual para cada área */
+.parent > div:nth-child(1) { /* div1 */
+  grid-area: div1;
+  background: #e4e8eb;
+  color: #7fcad3;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parent > div:nth-child(2) { /* div2 */
+  grid-area: div2;
+  background: linear-gradient(to bottom right, #f5f7fa, #e4e8eb);
+}
+
+.parent > div:nth-child(3) { /* div3 */
+  grid-area: div3;
+  background: linear-gradient(to bottom right, #f5f7fa, #e4e8eb);
+}
+
+.parent > div:nth-child(4) { /* div4 */
+  grid-area: div4;
+  background: linear-gradient(to bottom right, #f5f7fa, #e4e8eb);
+}
+
+
+.parent > div h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.parent > div p {
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+
+@media (max-width: 768px) {/* resolvendo o problema de formatação dessa aba */
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "div1"
+      "div2"
+      "div3"
+      "div4";
+  }
+}
+
 
 .div1,
 .div2,
